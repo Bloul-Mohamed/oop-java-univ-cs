@@ -1,68 +1,61 @@
-import java.util.Scanner;
-import labone.*;
 import labtwo.*;
+import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
-    // test the class Student
-    Student student1 = new Student("Ali", 1, 3);
-    Student student2 = new Student("Mohmaed", 2, 3.5);
-    System.out.println(Student.compireStudentGrade(student1, student2));
+    Scanner scanner = new Scanner(System.in);
+    Library library = new Library();
 
-    System.out.println("---------------------------------");
+    boolean running = true;
+    while (running) {
+      // Display menu
+      System.out.println("\n===== LIBRARY MANAGEMENT SYSTEM =====");
+      System.out.println("1. Add a book");
+      System.out.println("2. Remove damaged books");
+      System.out.println("3. List all books");
+      System.out.println("4. Exit");
+      System.out.print("Enter your choice (1-4): ");
 
-    System.out.println("Student 1 Info:");
-    student1.displayStudentInfo(student1);
+      // Get user choice
+      int choice = 0;
+      try {
+        choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+      } catch (Exception e) {
+        scanner.nextLine(); // Clear buffer on error
+        System.out.println("Please enter a valid number.");
+        continue;
+      }
 
-    System.out.println("---------------------------------");
-    System.out.println("Student 2 Info:");
-    student2.displayStudentInfo(student2);
+      // Process the choice
+      switch (choice) {
+        case 1:
+          System.out.print("Enter book title: ");
+          String title = scanner.nextLine();
+          System.out.print("Enter book author: ");
+          String author = scanner.nextLine();
+          System.out.print("Enter book condition (0-5, where 0 is damaged): ");
+          int condition = scanner.nextInt();
+          scanner.nextLine(); // Consume newline
+          Book newBook = new Book(title, author, condition);
+          library.addBook(newBook);
+          System.out.println("Book added: " + newBook.getTitle());
+          break;
+        case 2:
+          library.removeDamagedBook();
+          break;
+        case 3:
+          library.inventory();
+          break;
+        case 4:
+          running = false;
+          System.out.println("Exiting program. Goodbye!");
+          break;
+        default:
+          System.out.println("Invalid choice. Please select a number between 1 and 4.");
+      }
+    }
 
-    System.out.println("---------------------------------");
-    // test the class Chrono
-    Chrono chrono = new Chrono(1, 30, 45);
-    chrono.display();
-    chrono.advance(30);
-    chrono.display();
-    chrono.advance(70);
-    chrono.display();
-
-    System.out.println("---------------------------------");
-    // test the class Employee
-    Employee employeeLevelOne = new Employee();
-    Employee employeeLevelTwo = new Employee("Ali", "Mohamed");
-    Employee employeeLevelThree = new Employee("Ahmed", "Mohamed", "Designer");
-
-    Employee employeeLevelFour = new Employee("Ahmed", "Mohamed", "Designer", 5000);
-    employeeLevelOne.displayDetails();
-    System.out.println("---------------------------------");
-    employeeLevelTwo.displayDetails();
-    System.out.println("---------------------------------");
-    employeeLevelThree.displayDetails();
-    System.out.println("---------------------------------");
-    employeeLevelFour.displayDetails();
-
-    System.out.println("---------------------------------");
-    // test the class Point2D
-    Point2D point1 = new Point2D(1, 2);
-    Point2D point2 = new Point2D(3, 4);
-    System.out.println(point1.toString());
-    System.out.println(point2.toString());
-    System.out.println(point1.distance(point2));
-
-    System.out.println("---------------------------------");
-    // test the class Player
-    Player player = new Player();
-    player.displayStatus();
-    player.injure();
-    player.displayStatus();
-    player.injure();
-    player.displayStatus();
-    player.heal();
-    player.displayStatus();
-    player.injure();
-    player.displayStatus();
-    player.injure();
-    player.displayStatus();
+    scanner.close();
   }
 }
