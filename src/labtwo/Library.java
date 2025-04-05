@@ -3,7 +3,6 @@ package labtwo;
 import java.util.ArrayList;
 
 public class Library {
-  // Initialize the list when declaring it
   ArrayList<Book> books = new ArrayList<Book>();
 
   // Method
