@@ -1,5 +1,5 @@
 import labtwo.*;
-import java.util.Scanner;
+import labtwo.*;
 
 public class Main {
   public static void main(String[] args) {

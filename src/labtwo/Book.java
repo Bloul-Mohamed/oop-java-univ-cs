@@ -35,6 +35,15 @@ public class Book {
     } else {
       System.out.println("Condition is very low .0.");
     }
+
+  }
+
+  public void degrade(int degrade) {
+    if (this.condition >= 1) {
+      this.condition = this.condition - degrade;
+    } else {
+      System.out.println("Condition is very low .0.");
+    }
   }
 
   // Getters and Setters
@@ -60,6 +69,10 @@ public class Book {
 
   public void setCondition(int condition) {
     this.condition = condition;
+  }
+
+  public void setCondition() {
+    this.condition = 5; // Default condition
   }
 
 }
