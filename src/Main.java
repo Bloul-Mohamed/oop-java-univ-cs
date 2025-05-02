@@ -1,24 +1,29 @@
-// File: Main.java
 
-import labtwo.*;
+// File: Main.java
+// package labthree;
+
+import labthree.*;
 
 public class Main {
   public static void main(String[] args) {
-    Scolarite scolarite = new Scolarite();
-    StudentUnique student1 = new StudentUnique("Ali", "Ahmed");
-    student1.setGrade(85.0);
-    student1.setGrade(90.0);
-    student1.setGrade(60.0);
-    scolarite.setStudent(student1);
+    Clinic clinic = new Clinic();
 
-    StudentUnique student2 = new StudentUnique("Mohamed", "Ridha");
-    student2.setGrade(75.0);
-    student2.setGrade(80.0);
-    student2.setGrade(45.0);
-    scolarite.setStudent(student2);
+    Doctor doctor1 = new Doctor("Dr.Mohamed", "Cardiology", 10);
+    Doctor doctor2 = new Doctor("Dr.Kenzy", "Neurology", 18);
+    Administrator admin1 = new Administrator("Ali", "HR");
+    Administrator admin2 = new Administrator("Khaled", "Finance");
+    Nurse nurse1 = new Nurse("Oussama", "Pediatrics", false);
+    Nurse nurse2 = new Nurse("Aicha", "Surgery", true);
 
-    System.out.println("Number of students: " + scolarite.nbStudents());
-    System.out.println("Students with average above 80:");
-    scolarite.displayAllStudents(60.0);
+    clinic.addEmployee(doctor1);
+    clinic.addEmployee(doctor2);
+    clinic.addEmployee(admin1);
+    clinic.addEmployee(admin2);
+    clinic.addEmployee(nurse1);
+    clinic.addEmployee(nurse2);
+
+    clinic.showEmployees();
+
+    System.out.println("Total Monthly Payroll: " + clinic.calculateMonthlyPayroll() + " $");
   }
 }

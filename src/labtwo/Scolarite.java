@@ -20,7 +20,7 @@ public class Scolarite {
   public void displayAllStudents(double threshold) {
     for (StudentUnique student : students) {
       if (student.calculateAverage() > threshold) {
-        System.out.println("Student Name: " + student.firstName + " " + student.lastName);
+        System.out.println("Student Name: " + student.getFirstName() + " " + student.getLastName());
         System.out.println("Average: " + student.calculateAverage());
         System.out.println("----------------");
       }
@@ -34,8 +34,8 @@ public class Scolarite {
 
   public void getStudent(int id) {
     for (StudentUnique student : students) {
-      if (student.id == id) {
-        System.out.println("Student Name: " + student.firstName + " " + student.lastName);
+      if (student.getId() == id) {
+        System.out.println("Student Name: " + student.getFirstName() + " " + student.getLastName());
       }
     }
     System.out.println("Student not found");
