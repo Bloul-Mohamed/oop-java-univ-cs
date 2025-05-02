@@ -9,6 +9,10 @@ public class Scolarite {
 
   ArrayList<StudentUnique> students;
 
+  public Scolarite() {
+    this.students = new ArrayList<StudentUnique>();
+  }
+
   public int nbStudents() {
     return students.size();
   }
@@ -28,13 +32,13 @@ public class Scolarite {
 
   }
 
-  public StudentUnique getStudent(int id) {
+  public void getStudent(int id) {
     for (StudentUnique student : students) {
       if (student.id == id) {
-        return student;
+        System.out.println("Student Name: " + student.firstName + " " + student.lastName);
       }
     }
-    return null; // Student not found
+    System.out.println("Student not found");
   }
 
 }

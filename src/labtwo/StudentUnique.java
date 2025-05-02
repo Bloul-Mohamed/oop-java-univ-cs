@@ -7,24 +7,26 @@ import java.util.ArrayList;
  */
 public class StudentUnique {
 
-  String firstName;
-  String lastName;
-  int id;
-  ArrayList<Double> grades;
+  private String firstName;
+  private String lastName;
+  private int id = 0;
+  private ArrayList<Double> grades;
+  private static int idCounter = 0;
 
   // Constructor
   public StudentUnique() {
     this.firstName = "Unknown";
     this.lastName = "Unknown";
-    this.id = 0;
+    this.id = ++idCounter;
+
     this.grades = new ArrayList<Double>();
   }
 
-  public StudentUnique(String firstName, String lastName, int id) {
+  public StudentUnique(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.id = id;
     this.grades = new ArrayList<Double>();
+    this.id = ++idCounter;
   }
 
   public void display() {
