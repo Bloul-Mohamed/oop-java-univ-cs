@@ -1,29 +1,21 @@
 
 // File: Main.java
-// package labthree;
-
-import labthree.*;
+import java.awt.Color;
+import labfourth.*;
 
 public class Main {
   public static void main(String[] args) {
-    Clinic clinic = new Clinic();
+    // Create a rectangle and a disk
+    Rectangle rectangle = new Rectangle(5.22, 3.0, Color.RED);
+    Disque disk = new Disque(2.0, Color.BLUE);
 
-    Doctor doctor1 = new Doctor("Dr.Mohamed", "Cardiology", 10);
-    Doctor doctor2 = new Doctor("Dr.Kenzy", "Neurology", 18);
-    Administrator admin1 = new Administrator("Ali", "HR");
-    Administrator admin2 = new Administrator("Khaled", "Finance");
-    Nurse nurse1 = new Nurse("Oussama", "Pediatrics", false);
-    Nurse nurse2 = new Nurse("Aicha", "Surgery", true);
+    System.out.println("Color of Rectangle: " + rectangle.getColor());
+    // Print the area and perimeter of the rectangle
+    System.out.printf("Rectangle Area: %.2f%n" + rectangle.area());
+    System.out.printf("Rectangle Perimeter: %.2f%n" + rectangle.perimeter());
 
-    clinic.addEmployee(doctor1);
-    clinic.addEmployee(doctor2);
-    clinic.addEmployee(admin1);
-    clinic.addEmployee(admin2);
-    clinic.addEmployee(nurse1);
-    clinic.addEmployee(nurse2);
-
-    clinic.showEmployees();
-
-    System.out.println("Total Monthly Payroll: " + clinic.calculateMonthlyPayroll() + " $");
+    // Print the area and perimeter of the disk
+    System.out.printf("Disk Area:  %.2f%n" + disk.area());
+    System.out.printf("Disk Perimeter:  %.2f%n" + disk.perimeter());
   }
 }

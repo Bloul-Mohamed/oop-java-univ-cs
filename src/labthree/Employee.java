@@ -6,7 +6,7 @@ package labthree;
 public class Employee {
   private String name;
   private int id;
-  private int countId = 0;
+  private static int countId = 0;
   private final Double baseSalary = 5000.0;
 
   // Constructor
