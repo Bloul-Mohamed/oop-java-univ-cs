@@ -2,6 +2,10 @@ package labfourth;
 
 import java.awt.Color;
 
+// File: ColorExample.java
+
+import java.awt.Color;
+
 /**
  * Disque
  */
@@ -26,6 +30,7 @@ public class Disque extends Forme2D {
     this.radius = radius;
   }
 
+  @Override
   public void setColor(Color color) {
     this.color = color;
 

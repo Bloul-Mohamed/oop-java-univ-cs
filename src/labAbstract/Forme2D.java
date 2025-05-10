@@ -3,6 +3,8 @@ package labAbstract;
 import java.awt.Color;
 import labfourth.ColorInfo;
 
+import java.awt.Color;
+
 /**
  * Forme2D
  */
